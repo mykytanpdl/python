@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Bokeh Plot{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdn.bokeh.org/bokeh/release/bokeh-3.6.0.min.css">
+{% endblock %}
+
+{% block content %}
+<h1>Bokeh Plot Example</h1>
+<div>
+    {{ script|safe }}
+    {{ div|safe }}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-3.6.0.min.js"></script>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load custom_templates %}
+
+{% block title %}{{ model_name }} Details{% endblock %}
+
+{% block content %}
+<h2>{{ model_name }} Details</h2>
+<ul>
+    {% for field in field_names %}
+    <li><strong>{{ field|beautify }}:</strong> {{ item|getatt:field }}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'update' model_name|lower item.id %}">Edit</a>
+<a href="{% url 'delete' model_name|lower item.id %}">Delete</a>
+<a href="{% url 'list' model_name|lower %}">Back to List</a>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Library{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+<header>
+    <a href="{% url 'home' %}" style="text-decoration: none; color: inherit;">
+        <h1>Library</h1>
+    </a>
+<nav>
+    <a href="{% url 'list' 'book' %}">Books</a>
+    <a href="{% url 'list' 'author' %}">Authors</a>
+    <a href="{% url 'list' 'reader' %}">Readers</a>
+    <a href="{% url 'list' 'loan' %}">Loans</a>
+<details class="dropdown">
+    <summary class="dropdown-summary">Dashboards</summary>
+    <ul class="dropdown-menu">
+        <li><a href="{% url 'dashboard1' %}">Dashboard 1</a></li>
+        <li><a href="{% url 'interactive_dashboard1' %}">Interactive Dashboard 1</a></li>
+        <li><a href="{% url 'dashboard2' %}">Dashboard 2</a></li>
+        <li><a href="{% url 'interactive_dashboard2' %}">Interactive Dashboard 2</a></li>
+    </ul>
+</details>
+</nav>
+</header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Library</p>
+    </footer>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}{{ model_name }} Form{% endblock %}
+
+{% block content %}
+<h2>{{ form_title }}</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+{% if object %}
+    <a href="{% url 'detail' model_name|lower object.id %}">Cancel</a>
+{% else %}
+    <a href="{% url 'list' model_name|lower %}">Cancel</a>
+{% endif %}
+{% endblock %}

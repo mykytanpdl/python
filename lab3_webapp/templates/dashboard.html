@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Library Dashboard{% endblock %}
+
+{% block content %}
+<h1>Library Dashboard</h1>
+<div>{{ plots.fig_books_per_year|safe }}</div>
+<div>{{ plots.fig_loans_per_book|safe }}</div>
+<div>{{ plots.fig_loans_per_age_category|safe }}</div>
+<div>{{ plots.fig_loans_per_reader|safe }}</div>
+<div>{{ plots.fig_books_by_author|safe }}</div>
+<div>{{ plots.fig_books_per_publishing_house|safe }}</div>
+{% endblock %}
